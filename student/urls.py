@@ -2,6 +2,9 @@ from django.urls import path
 from student import views
 from django.contrib.auth.views import LoginView
 
+from django.conf.urls.static import static
+from django.conf import settings
+
 urlpatterns = [
 path('studentclick', views.studentclick_view),
 path('studentlogin', LoginView.as_view(template_name='student/studentlogin.html'),name='studentlogin'),
@@ -17,3 +20,5 @@ path('view-result', views.view_result_view,name='view-result'),
 path('check-marks/<int:pk>', views.check_marks_view,name='check-marks'),
 path('student-marks', views.student_marks_view,name='student-marks'),
 ]
+
+urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

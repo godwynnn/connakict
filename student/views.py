@@ -23,8 +23,8 @@ def student_signup_view(request):
     studentForm=forms.StudentForm()
     mydict={'userForm':userForm,'studentForm':studentForm}
     if request.method=='POST':
-        userForm=forms.StudentUserForm(request.POST)
-        studentForm=forms.StudentForm(request.POST,request.FILES)
+        userForm=forms.StudentUserForm(request.POST or None)
+        studentForm=forms.StudentForm(request.POST or None,request.FILES or None)
         if userForm.is_valid() and studentForm.is_valid():
             user=userForm.save()
             user.set_password(user.password)

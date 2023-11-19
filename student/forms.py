@@ -1,13 +1,13 @@
 from django import forms
-# from django.contrib.auth.models import User
-from main.models import *
+
+from main.models import User
 from . import models
 from exam import models as QMODEL
 
 class StudentUserForm(forms.ModelForm):
     class Meta:
         model=User
-        fields=['first_name','last_name','username','password','email','reg_no','center']
+        fields=['first_name','last_name','password','email','center']
         widgets = {
         'password': forms.PasswordInput()
         }
@@ -15,5 +15,5 @@ class StudentUserForm(forms.ModelForm):
 class StudentForm(forms.ModelForm):
     class Meta:
         model=models.Student
-        fields=['address','mobile','profile_pic']
+        fields=['mobile','profile_pic']
 
