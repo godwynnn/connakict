@@ -163,3 +163,15 @@ EMAIL_RECEIVING_USER = [''] # email on which you will receive messages sent from
 # }
 
 AUTH_USER_MODEL="main.User"
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'cofeiportal_cf_ict',
+#         'USER': 'cofeiportal_cf_ict',
+#         'PASSWORD': 'a#!Rn5swY!yf',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }

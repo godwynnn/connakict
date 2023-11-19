@@ -4,9 +4,14 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
+    centers=(
+        ('umuahia','umuahia'),
+        ('aba','aba'),
+        ('ohafia','ohafia')
+    )
     email=models.EmailField(max_length=200,unique=True)
     reg_no=models.CharField(max_length=20,blank=True,null=True)
-    center=models.CharField(max_length=20,blank=True,null=True)
+    center=models.CharField(max_length=20,blank=True,null=True,choices=centers)
 
     USERNAME_FIELD='email'
     REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
