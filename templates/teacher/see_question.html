@@ -1,0 +1,122 @@
+{% extends 'teacher/teacherbase.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+<br><br>
+<div class="container">
+  <div class="panel panel-primary rounded-0">
+    <div class="panel-heading rounded-0">
+      <h6 class="panel-title">Available Questions</h6>
+    </div>
+    <table class="table table-hover table-bordered" id="dev-table">
+      <thead>
+        <tr>
+
+          <th>Question</th>
+         
+          <th>Marks</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      {% for c in questions %}
+      <tr>
+
+        <td> {{c.question}}</td>
+        
+        <td>{{c.marks}}</td>
+        <td class="text-center"><a class="btn btn-danger btn-xs" style="border-radius: 0%;" href="{% url 'remove-question' c.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+        
+      </tr>
+      {% endfor %}
+    </table>
+
+    
+  </div>
+  <div class="w-75">
+    {%if course.ref_id == None %}
+    <input type="text" class="col-8" readonly placeholder="Generate link"  id="link">
+    {%else%}
+    <input type="text" class="col-8" readonly value="http://{{host}}/student/exam?ref_id={{course.ref_id}}" id="link">
+    {%endif%}
+    <button class="btn btn-secondary" id="copy_link" >Copy Link</button>
+  </div><br>
+
+
+  <button class="btn btn-primary" id="gen_link" value="{{course_id}}">Generate Link</button>
+  
+
+</div>
+
+<br><br><br><br><br><br>
+
+
+<script>
+  const url=`http://${window.location.host}/`
+
+  let gen_link=document.getElementById('gen_link')
+
+
+  function getCookie(name) {
+                  let cookieValue = null;
+                  if (document.cookie && document.cookie !== '') {
+                      const cookies = document.cookie.split(';');
+                      for (let i = 0; i < cookies.length; i++) {
+                          const cookie = cookies[i].trim();
+                          // Does this cookie string begin with the name we want?
+                          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                              break;
+                          }
+                      }
+                  }
+                  return cookieValue;
+              }
+    const csrftoken = getCookie('csrftoken');
+
+  gen_link.addEventListener('click',(e)=>{
+    console.log(`${url}?course_id=${e.target.value}`)
+    e.preventDefault()
+    fetch(`${url}teacher/generate-link?course_id=${e.target.value}`,{
+      method:'GET',
+      headers:{
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrftoken,
+          "X-Requested-With": "XMLHttpRequest"
+
+        
+      }
+    }).then(res=>res.json())
+    .then(data=>
+    console.log(data),
+    location.reload()
+    )
+  })
+
+  document.getElementById('copy_link').addEventListener('click',()=>{
+    ref_link=document.getElementById('link')
+    ref_link.select()
+
+    navigator.clipboard.writeText(ref_link.value);
+  })
+</script>
+{% endblock content %}
+

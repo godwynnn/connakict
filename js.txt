@@ -1,0 +1,58 @@
+  // TIMER
+
+    let count=document.getElementById('countdown')
+    let time=document.getElementById('time')
+    
+    
+   
+    let done=false
+    
+    localStorage.setItem('time',JSON.stringify(Date.now()-Date.parse(time.textContent)))
+    
+    setInterval(()=>{
+        
+        let time_obj=JSON.parse(localStorage.getItem('time'))
+        // time_obj=Math.floor(((Date.now()/(1000))-Date.parse(time.textContent)/(1000))%60)
+        // console.log(time_obj)
+        
+        let hour=Math.floor(((Date.now()/(1000*60*60))-Date.parse(time.textContent)/(1000*60*60))%24)
+        let min=Math.floor(((Date.now()/(1000*60))-Date.parse(time.textContent)/(1000*60))%60)
+        let seconds=Math.floor(((Date.now()/(1000))-Date.parse(time.textContent)/(1000))%60)
+        console.log(seconds)
+        
+        
+        // let done=false
+
+        // if(seconds>0){
+        //     seconds--
+            
+        // }else{
+        //     if(min>0){
+        //         min--
+        //         seconds=59
+              
+        //     }else{
+        //         if(hour>0){
+        //             hour--
+        //             min=59
+        //             seconds=59
+        //         }else{
+        //             done=true
+        //         }
+        //     }
+       
+        // }
+        
+        if(done==true){
+            saveAns() 
+            window.location='/student/calculate-marks'
+        }
+
+        console.log(done)
+        // localStorage.setItem('time',JSON.stringify((hour<10?'0':'')+hour+':'+(min<10?'0':'')+min+':'+(seconds<10?'0':'')+seconds))
+        count.textContent=(hour<10?'0':'')+hour+':'+(min<10?'0':'')+min+':'+(seconds<10?'0':'')+seconds
+    
+    },1000)
+
+
+      
