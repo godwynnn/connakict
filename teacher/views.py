@@ -28,7 +28,7 @@ def teacher_signup_view(request):
         teacherForm=forms.TeacherForm(request.POST or None,request.FILES or None)
         # print(request.POST)
         if userForm.is_valid() and teacherForm.is_valid():
-            print(request.POST)
+            # print(request.POST)
             user=userForm.save(commit=False)
             user.set_password(user.password)
             user.save()

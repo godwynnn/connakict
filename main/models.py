@@ -17,7 +17,7 @@ class User(AbstractUser):
     reg_no=models.CharField(max_length=20,blank=True,null=True)
     center=models.CharField(max_length=20,blank=True,null=True,choices=centers)
     year=models.CharField(max_length=20,blank=True,null=True,choices=years)
-
+    username=models.CharField(max_length=50,blank=True,null=True)
     USERNAME_FIELD='email'
     REQUIRED_FIELDS = ['first_name', 'last_name','password']
 
@@ -25,6 +25,9 @@ class User(AbstractUser):
         return self.email
     
     def save(self,*args,**kwargs):
-        self.reg_no=self.reg_no.lower()
+        if self.reg_no is not None:
+            self.reg_no=self.reg_no.lower()
+        else:
+            pass
         super().save(*args,**kwargs)
     
