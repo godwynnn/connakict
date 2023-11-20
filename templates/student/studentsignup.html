@@ -57,6 +57,21 @@
       </div>
 
       <div class="form-row">
+
+        <div class="form-group col-md-6">
+          <label for="profile_pic">Registration no</label>
+          {% render_field userForm.reg_no|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Registration Number" %}
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="profile_pic">Year attended</label>
+          {% render_field userForm.year|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Year Attended" %}
+        </div>
+        
+      </div>
+
+      <div class="form-row">
+
         <div class="form-group col-md-12">
           <label for="profile_pic">Profile Picture</label>
           {% render_field studentForm.profile_pic|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="" %}

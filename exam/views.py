@@ -13,7 +13,7 @@ from student import models as SMODEL
 from teacher import forms as TFORM
 from student import forms as SFORM
 from django.contrib.auth.models import User
-
+import xlsxwriter
 
 
 def home_view(request):
@@ -294,3 +294,23 @@ def contactus_view(request):
     return render(request, 'exam/contactus.html', {'form':sub})
 
 
+
+def ExtractData(request):
+    results=list(models.Result.objects.all())
+    workbook=xlsxwriter.Workbook('data/results_db.xlsx')
+
+    worksheet=workbook.add_worksheet('result')
+    row=0
+    col=0
+
+    for result in results:
+        worksheet.write(row,col,f'{result.student.user.first_name.capitalize()} {result.student.user.first_name.capitalize()}')
+        worksheet.write(row,col+1,f'{result.student.user.email.lower()}')
+        worksheet.write(row,col+2,f'{result.student.user.reg_no}')
+        worksheet.write(row,col+3,f'{result.student.user.year}')
+        worksheet.write(row,col+4,f'{result.student.user.center}')
+        worksheet.write(row,col+5,f'{result.exam.course_name}')
+        worksheet.write(row,col+5,f'{result.marks}')
+        
+        row+=1
+    workbook.close()
