@@ -7,7 +7,7 @@ from exam import models as QMODEL
 class StudentUserForm(forms.ModelForm):
     class Meta:
         model=User
-        fields=['first_name','last_name','password','email','center','reg_no','year']
+        fields=['first_name','last_name','password','email','center','no','year']
         widgets = {
         'password': forms.PasswordInput()
         }
