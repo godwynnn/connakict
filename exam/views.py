@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect,reverse
 from . import forms,models
 from django.db.models import Sum
 from django.contrib.auth.models import Group
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib.auth.decorators import login_required,user_passes_test
 from django.conf import settings
 from datetime import date, timedelta
@@ -14,6 +14,18 @@ from teacher import forms as TFORM
 from student import forms as SFORM
 from django.contrib.auth.models import User
 import xlsxwriter
+
+
+
+
+def is_admin(view_func):
+    def wrapper_func(request,*args,**kwargs):
+        if request.user.is_superuser:
+
+            return view_func(request,*args,**kwargs)
+        else:
+            return HttpResponse('not permitted to perform such action')
+    return wrapper_func
 
 
 def home_view(request):
@@ -295,6 +307,8 @@ def contactus_view(request):
 
 
 
+
+@is_admin
 def ExtractData(request):
     results=list(models.Result.objects.all())
     workbook=xlsxwriter.Workbook('data/results_db.xlsx')
@@ -304,7 +318,7 @@ def ExtractData(request):
     col=0
 
     for result in results:
-        worksheet.write(row,col,f'{result.student.user.first_name.capitalize()} {result.student.user.first_name.capitalize()}')
+        worksheet.write(row,col,f'{result.student.user.first_name.capitalize()} {result.student.user.last_name.capitalize()}')
         worksheet.write(row,col+1,f'{result.student.user.email.lower()}')
         worksheet.write(row,col+2,f'{result.student.user.reg_no}')
         worksheet.write(row,col+3,f'{result.student.user.year}')
@@ -314,3 +328,5 @@ def ExtractData(request):
         
         row+=1
     workbook.close()
+
+    return redirect('afterlogin')
