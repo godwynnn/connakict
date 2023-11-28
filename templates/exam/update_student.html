@@ -21,7 +21,7 @@
 <h2 style="text-align:center;">Update Student</h2>
 <div>
   <form method="post" autocomplete="off" enctype="multipart/form-data" style="margin-left:200px;margin-right:200px;">
-      {% csrf_token %}
+    {%csrf_token%}
         <label for="first_name">First Name</label>
         {% render_field userForm.first_name class="form-control form-control-sm rounded-0" placeholder="First Name" %}
         <label for="last_name">Last Name</label>
