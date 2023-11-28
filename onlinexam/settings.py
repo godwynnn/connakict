@@ -33,8 +33,9 @@ SECRET_KEY = '@k0#p3kidu)yaaa3u1hplxz)f@^6xiy384*(+n@@s5x#1bx@m5'
 DEBUG = True
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS=['https://ict.up.railway.app/','ict.up.railway.app']
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['ict.up.railway.app','127.0.0.1']
+CSRF_TRUSTED_ORIGINS=['https://ict.up.railway.app/','http://127.0.0.1']
 
 
 # DEFAULT_AUTO_FIELD='django.db.models.AutoField'
