@@ -20,7 +20,7 @@ class User(AbstractUser):
     year=models.CharField(max_length=20,blank=True,null=True,choices=years)
     username=models.CharField(max_length=50,blank=True,null=True)
     USERNAME_FIELD='email'
-    REQUIRED_FIELDS = ['first_name', 'last_name','password']
+    REQUIRED_FIELDS = ['first_name', 'last_name','password','username']
 
     def __str__(self):
         return self.email
