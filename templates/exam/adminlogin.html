@@ -63,8 +63,7 @@ background: linear-gradient(to bottom, #d7d2cc, #adc5df); /* W3C, IE 10+/ Edge, 
     <div class="row">
         <div class="col-md-6">
             <div class="card">
-                <form class="box" method="post">
-                    {% csrf_token %}
+                <form class="box" method="post">{% csrf_token %}
                     <h1>Admin Login Panel</h1>
 
                      {% render_field form.username class="form-control rounded-0" autocomplete="off" placeholder="Username" %}
