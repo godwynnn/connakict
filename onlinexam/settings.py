@@ -35,7 +35,7 @@ DEBUG = True
 # ALLOWED_HOSTS = []
 # ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS = ['ict.up.railway.app','127.0.0.1']
-CSRF_TRUSTED_ORIGINS=['https://ict.up.railway.app/','http://127.0.0.1']
+CSRF_TRUSTED_ORIGINS=['https://ict.up.railway.app','http://127.0.0.1']
 
 
 # DEFAULT_AUTO_FIELD='django.db.models.AutoField'
