@@ -3,7 +3,9 @@ Django==4.2.7
 django-environ==0.11.2
 django-redis==5.3.0
 django-widget-tweaks==1.5.0
-# mysqlclient==2.2.0
+gunicorn==21.2.0
+mysqlclient==2.2.0
+packaging==23.2
 Pillow==10.1.0
 psycopg2==2.9.9
 PyMySQL==1.1.0
@@ -12,4 +14,5 @@ redis==5.0.0
 sqlparse==0.4.4
 typing_extensions==4.8.0
 tzdata==2023.3
+whitenoise==6.6.0
 XlsxWriter==3.1.9
