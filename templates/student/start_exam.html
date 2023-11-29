@@ -28,7 +28,7 @@
     </style>
     
 
-    <form class="form" autocomplete="off" onsubmit="saveAns()" action="/student/calculate-marks" method="">
+    <form class="form" autocomplete="off" onsubmit="return saveAns()" action="/student/calculate-marks" method="">
         {%csrf_token%}
         <h2 style="text-align: center;">Course: {{course.course_name}}</h2>
         {% for q in questions%}
