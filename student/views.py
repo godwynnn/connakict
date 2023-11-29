@@ -119,7 +119,7 @@ def start_exam_view(request,pk):
     )
     # print(datetime.datetime.now()-timer.end_time_date)
     questions=list(QMODEL.Question.objects.all().filter(course=course))
-    random.shuffle(questions)
+    # random.shuffle(questions)
     if request.method=='POST':
         pass
     response= render(request,'student/start_exam.html',{'course':course,'questions':questions,'timer':timer.end_time_date})
