@@ -363,7 +363,7 @@ def downloadfile(request):
 def DownloadView(request):
     file_path=os.path.join(settings.MEDIA_ROOT,'data')
    
-    file_list=os.listdir(file_path)[1:]
+    file_list=os.listdir(file_path)
     # file_list=[]
     # for file in files:
     #     file_list.append(file.replace('download','data'))
