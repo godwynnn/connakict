@@ -1,0 +1,11 @@
+{% extends 'exam/adminbase.html' %}
+{%load static%}
+{%block content%}
+<center>
+    {%for file in files%}
+    <p>{{file}} </p>
+    <a href="{{file}}" target="_blank">download</a>
+    {%endfor%}
+
+</center>
+{%endblock%}

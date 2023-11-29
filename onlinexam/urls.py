@@ -16,6 +16,9 @@ urlpatterns = [
     path('logout', LogoutView.as_view(template_name='exam/logout.html'),name='logout'),
     path('contactus', views.contactus_view),
     path('extract', views.ExtractData,name='extract_data'),
+
+    path('download', views.downloadfile,name='download'),
+    path('data/view', views.DownloadView,name='download_view'),
     path('afterlogin', views.afterlogin_view,name='afterlogin'),
 
 

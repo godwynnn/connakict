@@ -14,6 +14,8 @@ from teacher import forms as TFORM
 from student import forms as SFORM
 from django.contrib.auth.models import User
 import xlsxwriter
+import os
+
 
 
 
@@ -308,10 +310,16 @@ def contactus_view(request):
 
 
 
+
+
+
+
+
 @is_admin
 def ExtractData(request):
     results=list(models.Result.objects.all())
-    workbook=xlsxwriter.Workbook('data/results_db.xlsx')
+    print(results)
+    workbook=xlsxwriter.Workbook(os.path.join(settings.MEDIA_ROOT,'data/result.xlsx'))
 
     worksheet=workbook.add_worksheet('result')
     row=0
@@ -329,4 +337,40 @@ def ExtractData(request):
         row+=1
     workbook.close()
 
+  
+
     return redirect('afterlogin')
+
+
+def downloadfile(request):
+    file_path=os.path.join(settings.MEDIA_ROOT,'data')
+    print(os.listdir(file_path))
+
+    # with open(file_path) as folder:
+    #     # Create an HTTP response with the file
+    #     # response = HttpResponse(file.read(), content_type='application/ms-excel')
+        
+    #     # # Set the Content-Disposition header to force the download
+    #     # response['Content-Disposition'] = f'attachment; filename="{os.path.basename(file_path)}"'
+
+    #     # return response
+        
+    #     # for file in folder:
+    #     #     print(file)
+    return HttpResponse('done')
+
+
+def DownloadView(request):
+    file_path=os.path.join(settings.MEDIA_ROOT,'data')
+   
+    file_list=os.listdir(file_path)[1:]
+    # file_list=[]
+    # for file in files:
+    #     file_list.append(file.replace('download','data'))
+    # print(file_list)
+    context={}
+    context['files']=file_list
+
+    
+
+    return render(request,'exam/data.html',context)

@@ -29,25 +29,25 @@ class User(AbstractUser):
         if self.no is not None:
             if self.year=='2022':
                 if self.center =='aba':
-                    self.reg_no=f'CFK/AB/2022/{self.no}'.upper()
+                    self.reg_no=f'CF/AB/22/{self.no}'.upper()
                 
                 if self.center =='umuahia':
-                    self.reg_no=f'CFK/UM/2022/{self.no}'.upper()
+                    self.reg_no=f'CF/UM/22/{self.no}'.upper()
                 
                 if self.center =='ohafia':
-                    self.reg_no=f'CFK/OH/2022/{self.no}'.upper()
+                    self.reg_no=f'CF/OH/22/{self.no}'.upper()
                 
                 else:
                     pass
             else:
                 if self.center =='aba':
-                    self.reg_no=f'CFK/AB/2023/{self.no}'.upper()
+                    self.reg_no=f'CF/AB/23/{self.no}'.upper()
                 
                 if self.center =='umuahia':
-                    self.reg_no=f'CFK/UM/2023/{self.no}'.upper()
+                    self.reg_no=f'CF/UM/23/{self.no}'.upper()
                 
                 if self.center =='ohafia':
-                    self.reg_no=f'CFK/OH/2023/{self.no}'.upper()
+                    self.reg_no=f'CF/OH/23/{self.no}'.upper()
                 
                 else:
                     pass
