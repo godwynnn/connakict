@@ -91,12 +91,12 @@ WSGI_APPLICATION = 'onlinexam.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 
 # Password validation
@@ -185,14 +185,14 @@ AUTH_USER_MODEL="main.User"
 # }
 
 
-DATABASES={
-    'default':{
-        'ENGINE':'django.db.backends.postgresql',
-        'URL':env('DATABASE_URL'),
-        'NAME':env('PGDATABASE'),
-        'HOST':env('PGHOST'),
-        'PASSWORD':env('PGPASSWORD'),
-        'PORT':env('PGPORT'),
-        'USER':env('PGUSER')
-    }
-}
+# DATABASES={
+#     'default':{
+#         'ENGINE':'django.db.backends.postgresql',
+#         'URL':env('DATABASE_URL'),
+#         'NAME':env('PGDATABASE'),
+#         'HOST':env('PGHOST'),
+#         'PASSWORD':env('PGPASSWORD'),
+#         'PORT':env('PGPORT'),
+#         'USER':env('PGUSER')
+#     }
+# }

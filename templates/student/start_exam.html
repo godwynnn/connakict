@@ -28,7 +28,7 @@
     </style>
     
 
-    <form class="form" autocomplete="off" onsubmit="return saveAns()" action="/student/calculate-marks" method="">
+    <form class="form" autocomplete="off" action="/student/calculate-marks" method="" id="exam">
         {%csrf_token%}
         <h2 style="text-align: center;">Course: {{course.course_name}}</h2>
         {% for q in questions%}
@@ -111,6 +111,8 @@
         localStorage.clear()
 
     }
+
+    document.getElementById('exam').addEventListener('submit',saveAns)
     
 
     window.addEventListener('load',()=>{
