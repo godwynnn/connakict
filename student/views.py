@@ -100,7 +100,12 @@ def take_exam_view(request,pk):
     for q in questions:
         total_marks=total_marks + q.marks
     
+  
     return render(request,'student/take_exam.html',{'course':course,'total_questions':total_questions,'total_marks':total_marks})
+
+
+
+
 import datetime
 @login_required(login_url='studentlogin')
 @user_passes_test(is_student)
