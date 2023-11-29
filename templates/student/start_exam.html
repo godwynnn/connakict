@@ -28,7 +28,7 @@
     </style>
     
 
-    <form class="form" autocomplete="off" action="/student/calculate-marks" method="post" >
+    <form class="form" autocomplete="off" onsubmit="saveAns()" action="/student/calculate-marks" method="" >
         {%csrf_token%}
         <h2 style="text-align: center;">Course: {{course.course_name}}</h2>
         {% for q in questions%}
@@ -96,23 +96,9 @@
         localStorage.setItem(e.name,JSON.stringify(e.value))
     }
    
-    function saveAns() {
+    
 
-        // var ele = document.getElementsByTagName('input');
-        // for (i = 0; i < ele.length; i++) {
-        //     if (ele[i].type = "radio") {
-        //         if (ele[i].checked) {
-        //             setCookie(ele[i].name, ele[i].value, 3)
-                    
-        //         }
-        //     }
-        // }
-        localStorage.removeItem('time')
-        localStorage.clear()
-
-    }
-
-    document.getElementById('exam').addEventListener('click',saveAns)
+    
     
 
     window.addEventListener('load',()=>{
@@ -134,6 +120,28 @@
     let count=document.getElementById('countdown')
     let time=document.getElementById('time')
     // console.log(count)
+
+
+        function saveAns() {
+
+    // var ele = document.getElementsByTagName('input');
+    // for (i = 0; i < ele.length; i++) {
+    //     if (ele[i].type = "radio") {
+    //         if (ele[i].checked) {
+    //             setCookie(ele[i].name, ele[i].value, 3)
+                
+    //         }
+    //     }
+    // }
+    localStorage.removeItem('time')
+    localStorage.clear()
+
+    count.textContent=null
+
+    }
+
+
+    document.getElementById('exam').addEventListener('click',saveAns)
     
     
     if(JSON.parse(localStorage.getItem('time'))==null){
