@@ -28,7 +28,7 @@
     </style>
     
 
-    <form class="form" autocomplete="off" onsubmit="saveAns()" action="/student/calculate-marks" method="" >
+    <form class="form" autocomplete="off"  action="/student/calculate-marks" method="" id="exam" >
         {%csrf_token%}
         <h2 style="text-align: center;">Course: {{course.course_name}}</h2>
         {% for q in questions%}
@@ -77,7 +77,7 @@
         </div>
 
         {% endfor %}
-        <input class="btn btn-primary btn-lg" style="border-radius: 0%;" type="submit" value="Submit Answers" id="exam">
+        <input class="btn btn-primary btn-lg" style="border-radius: 0%;" type="submit" value="Submit Answers" >
     </form>
 </div>
 
@@ -133,16 +133,20 @@
     //         }
     //     }
     // }
-    count.textContent=null
+    // count.textContent=null
     localStorage.removeItem('time')
     localStorage.clear()
+    window.location='/student/calculate-marks'    
 
     
 
     }
 
 
-    document.getElementById('exam').addEventListener('click',saveAns)
+    document.getElementById('exam').addEventListener('submit',(e)=>{
+        e.preventDefault()
+        return saveAns()
+    })
     
     
     if(JSON.parse(localStorage.getItem('time'))==null){
