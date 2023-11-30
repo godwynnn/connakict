@@ -147,8 +147,9 @@
 
 
     document.getElementById('exam').addEventListener('submit',(e)=>{
+        saveAns()
         e.preventDefault()
-       saveAns()
+       
        window.location='/student/calculate-marks'  
     })
     
