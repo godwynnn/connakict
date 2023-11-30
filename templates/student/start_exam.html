@@ -93,10 +93,10 @@
     function selectAns(e){
        
         console.log(e.name,e.value)
-        setCookie(e.name, e.value, 3)
+        // setCookie(e.name, e.value, 3)
         localStorage.setItem(e.name,JSON.stringify(e.value))
-        location.reload()
-        e.preventDefault()
+        // location.reload()
+      
     }
    
     
@@ -125,21 +125,21 @@
     // console.log(count)
 
 
-        function saveAns() {
+    function saveAns() {
 
-    // var ele = document.getElementsByTagName('input');
-    // for (i = 0; i < ele.length; i++) {
-    //     if (ele[i].type = "radio") {
-    //         if (ele[i].checked) {
-    //             setCookie(ele[i].name, ele[i].value, 3)
-                
-    //         }
-    //     }
-    // }
-    // count.textContent=null
-    localStorage.removeItem('time')
-    localStorage.clear()
-     
+            var ele = document.getElementsByTagName('input');
+            for (i = 0; i < ele.length; i++) {
+                if (ele[i].type = "radio") {
+                    if (ele[i].checked) {
+                        setCookie(ele[i].name, ele[i].value, 3)
+                        
+                    }
+                }
+            }
+            // count.textContent=null
+            localStorage.removeItem('time')
+            localStorage.clear()
+            
 
     
 
