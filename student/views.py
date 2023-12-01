@@ -163,7 +163,10 @@ def calculate_marks_view(request):
         # HttpResponse.delete_cookie('course_id')
 
         response = HttpResponseRedirect(reverse('view-result'))
+        
         response.delete_cookie('course_id')
+        for id in len(questions):
+            response.delete_cookie(str(id+1))
         response.cookies.clear()
         return response
 
