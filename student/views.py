@@ -12,6 +12,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.urls import reverse,reverse_lazy
 from exam.decorators import student_exam_check
 import random
+from django.urls import reverse
 #for showing signup/login button for student
 def studentclick_view(request):
     if request.user.is_authenticated:
