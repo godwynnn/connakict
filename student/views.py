@@ -158,6 +158,7 @@ def calculate_marks_view(request):
         result.student=student
         result.submitted=True
         result.save()
+      
 
         # HttpResponse.delete_cookie('course_id')
 
