@@ -14,13 +14,21 @@
         background: linear-gradient(to bottom, #d7d2cc, #adc5df); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         
         }
-        
+        .form_body{
+            /* border: 1px solid red; */
+            width: 100%;
+            min-height: 90vh;
+            display: flex;
+        /* flex-direction: column; */
+        justify-content: center;
+        align-items: center;
+        }
         .box {
-            width: 500px;
+            width: 100%;
             padding: 40px;
-            position: absolute;
+            /* position: absolute;
             top: 50%;
-            left: 50%;
+            left: 50%; */
             background: #fff;
             text-align: center;
             transition: 0.25s;
@@ -36,7 +44,7 @@
             text-align: center;
             border: 2px solid #838383;
             padding: 10px 10px;
-            width: 250px;
+            width: 90%;
             outline: none;
             color: #000;
             transition: 0.25s
@@ -49,7 +57,7 @@
         
         .box input[type="text"]:focus,
         .box input[type="password"]:focus {
-            width: 300px;
+            /* width: 300px; */
             border-color: #c7d7e9;
         }
         
@@ -59,13 +67,13 @@
   </head>
   <body>
     {% include "exam/navbar.html" %}
-    <div class="container">
-    <div class="row">
+    <div class="container form_body">
+    <div class="row w-100 d-flex align-items-center justify-content-center">
         <div class="col-md-6">
             <div class="card">
                 <form class="box" method="post">
                     {%csrf_token%}
-                    <h1>Student Login Panel</h1>
+                    <h3>Student Login Panel</h3>
 
                      {% render_field form.username class="form-control rounded-0" autocomplete="off" placeholder="Email" %}
                      {% render_field form.password class="form-control rounded-0" autocomplete="off" placeholder="Password" %}
@@ -77,8 +85,7 @@
         </div>
     </div>
 </div>
-<br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br>
+
 <br><br><br><br><br>
 {% include "exam/footer.html" %}
   </body>
