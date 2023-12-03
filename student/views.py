@@ -152,13 +152,16 @@ def calculate_marks_view(request):
             if selected_ans == actual_answer:
                 total_marks = total_marks + questions[i].marks
         student = models.Student.objects.get(user_id=request.user.id)
-        result = QMODEL.Result()
-        result.marks=total_marks
-        result.exam=course
-        result.student=student
-        result.submitted=True
-        result.save()
+        if len(QMODEL.Result.objects.filter(student=student,exam=course))<1:
+            result = QMODEL.Result()
+            result.marks=total_marks
+            result.exam=course
+            result.student=student
+            result.submitted=True
+            result.save()
       
+        else:
+            pass
 
         # HttpResponse.delete_cookie('course_id')
 
