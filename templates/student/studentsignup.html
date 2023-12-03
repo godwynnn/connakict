@@ -6,8 +6,13 @@
     <style>
 
         form{
-           margin: 50px; 
+           /* margin: 50px;  */
           
+        }
+        .box{
+          /* border: 1px solid red; */
+          min-height: 90vh;
+          width: 100%;
         }
 
     </style>
@@ -18,7 +23,7 @@
 
 
 <br><br><br>
-<div class="container">
+<div class="container box w-100">
   <h3 style="text-align: center;">Student Signup Form</h3>
 <form method="post" autocomplete="off" enctype="multipart/form-data">
   {%csrf_token%}

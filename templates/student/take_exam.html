@@ -8,7 +8,11 @@
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <style>
-    
+    @media screen and(max-width:600px) {
+        li{
+            font-size: 15px;
+        }
+    }
 </style>
 </head>
 <br><br>
@@ -18,11 +22,11 @@
         <div class="row">
 
             <div class="card border-primary mx-4 my-4">
-                <div class="card-body text-default">
+                <div class="card-body text">
 
                     <h4 class="card-title">Exam Details :</h4>
                     <p class="card-text">
-                        </p><ul style="list-style:decimal;">
+                        </p><ul style="list-style:decimal; font-size: 18px;">
                             <li>Course : {{course.course_name}}</li>
                             <li>Total Question : {{total_questions}}</li>
                             <li>Total Marks : {{total_marks}}</li>
@@ -33,7 +37,7 @@
 
                     <h4 class="card-title">Rules :</h4>
                     <p class="card-text">
-                        </p><ul style="list-style:decimal;">
+                        </p><ul style="list-style:decimal; font-size: 18px;">
                             <li>All questions are MCQ (multiple choice question)</li>
                             <li><span class="text-danger">Only one choice is correct among the given.</span></li>
                             <li>Every question carry different marks.</li>
