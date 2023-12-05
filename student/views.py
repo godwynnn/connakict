@@ -144,6 +144,7 @@ def calculate_marks_view(request):
         total_marks=0
         questions=QMODEL.Question.objects.all().filter(course=course)
         for i in range(len(questions)):
+            # print(i)
             
             selected_ans = request.COOKIES.get(str(i+1))
             # print(request.COOKIES)
@@ -168,12 +169,12 @@ def calculate_marks_view(request):
         response = HttpResponseRedirect(reverse('view-result'))
         
         response.delete_cookie('course_id')
-        # for id in range(len(questions)):
-        #     response.delete_cookie(str(id+1))
+        for id in range(len(questions)):
+             response.delete_cookie(str(id+1))
+             
 
-        #     return response
-        response.cookies.clear()
         return response
+        
 
 
 
