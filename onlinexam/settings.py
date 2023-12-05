@@ -34,8 +34,8 @@ DEBUG = True
 
 # ALLOWED_HOSTS = []
 # ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = ['connak-ict.up.railway.app','127.0.0.1']
-CSRF_TRUSTED_ORIGINS=['https://connak-ict.up.railway.app','http://127.0.0.1']
+ALLOWED_HOSTS = ['connakict.up.railway.app','127.0.0.1']
+CSRF_TRUSTED_ORIGINS=['https://connakict.up.railway.app','http://127.0.0.1']
 
 
 
