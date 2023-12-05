@@ -339,7 +339,7 @@ def ExtractData(request):
 
   
 
-    return redirect('afterlogin')
+    return redirect('download_view')
 
 
 def downloadfile(request):
