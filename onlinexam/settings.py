@@ -40,6 +40,8 @@ CSRF_TRUSTED_ORIGINS=['https://connakict.up.railway.app','http://127.0.0.1']
 
 
 
+
+
 # DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 # Application definition
 
