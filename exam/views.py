@@ -332,7 +332,7 @@ def ExtractData(request):
         worksheet.write(row,col+3,f'{result.student.user.year}')
         worksheet.write(row,col+4,f'{result.student.user.center}')
         worksheet.write(row,col+5,f'{result.exam.course_name}')
-        worksheet.write(row,col+5,f'{result.marks}')
+        worksheet.write(row,col+6,f'{result.marks}')
         
         row+=1
     workbook.close()
