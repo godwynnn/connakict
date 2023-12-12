@@ -111,7 +111,7 @@ def teacher_add_question_view(request):
             question.save()       
         else:
             print("form is invalid")
-        return HttpResponseRedirect('/teacher/teacher-view-question')
+        return HttpResponseRedirect('teacher-add-question')
     return render(request,'teacher/teacher_add_question.html',{'questionForm':questionForm})
 
 @login_required(login_url='teacherlogin')
