@@ -34,10 +34,10 @@
         {% for q in questions%}
         <div class="d-flex w-100 align-items-center">
             <div class="col-auto flex-shrink-1 flex-grow-1">
-                <h3 class="">{{ forloop.counter }}. {{q.question}}</h3>
+                <h5 class="">{{ forloop.counter }}. {{q.question}}</h5>
             </div>
             <div class="col-auto">
-                <h4 style="text-align: right;">[{{q.marks}} Marks]</h4>
+                <h6 style="text-align: right;">[{{q.marks}} Marks]</h6>
             </div>
         </div>
         <input type="hidden" name="csrfmiddlewaretoken" value="C24rUotmdHawVQJL3KrqiWxvti8UffOFYUc8TRbZtLt36AVLdP3jbkzUVe3beRAa">
